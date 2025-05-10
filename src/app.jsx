@@ -1,11 +1,10 @@
 import React from "react";
-import { CalendarProvider, useCalendar } from "./prov/calendar";
+import { useCalendar } from "./prov/calendar";
 
-// react-big-calendar setup
-import { Calendar } from "react-big-calendar";
-import { momentLocalizer } from "react-big-calendar";
+import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
+import { Route, Routes, Navigate } from "react-router-dom";
 
 const localizer = momentLocalizer(moment);
 
@@ -24,11 +23,17 @@ function CalendarView() {
 
 export default function App() {
   return (
-    <CalendarProvider>
-      <div style={{ maxWidth: 800, margin: "0 auto", padding: "1rem" }}>
-        <h1>My Calendar</h1>
-        <CalendarView />
-      </div>
-    </CalendarProvider>
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <div style={{ maxWidth: 800, margin: "0 auto", padding: "1rem" }}>
+            <h1>My Calendar</h1>
+            <CalendarView />
+          </div>
+        }
+      />
+      <Route path="*" element={<Navigate to="/" />} />
+    </Routes>
   );
 }

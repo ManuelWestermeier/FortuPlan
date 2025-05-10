@@ -4,6 +4,7 @@ import { HashRouter } from "react-router-dom";
 import Root from "./root";
 import insallSW from "./service-worker";
 import "./index.css";
+import { CalendarProvider } from "./prov/calendar";
 
 insallSW();
 
@@ -11,7 +12,9 @@ insallSW();
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <HashRouter>
-      <Root />
+      <CalendarProvider>
+        <Root />
+      </CalendarProvider>
     </HashRouter>
   </StrictMode>
 );
