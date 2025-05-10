@@ -3,7 +3,7 @@ import React from 'react'
 function App() {
   return (
     <div style={{ padding: '2rem' }}>
-      <h1>FortuPlan</h1>
+      <h1><img src="/favicon.svg" alt="" /></h1>
       <p>Plane deine Todos, Abläufe, Events und Tage – sicher und einfach.</p>
     </div>
   )
