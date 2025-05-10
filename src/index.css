@@ -5,8 +5,41 @@
 }
 
 html {
-    background-image: linear-gradient(to bottom right, #15151f, #2c2c3c);
+    background-image: linear-gradient(to bottom right, #15151f, #3b3b53);
     color: #eee;
     width: 100dvw;
     height: 100dvh;
+    font-weight: 500;
+}
+
+button,
+input,
+textarea,
+select {
+    padding: 1rem;
+    margin: 0.5rem;
+    outline: 0.3rem solid #3b3b53;
+    border: none;
+    border-radius: 0.3rem;
+    background-color: #3b3b53;
+    color: #fff;
+    transition: all 0.2s ease-in-out;
+}
+
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 0.4rem solid #4c4c76;
+    border-radius: 0.2rem;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #4c4c76;
+    outline: 0.4rem solid #4c4c76;
+}
+
+::placeholder {
+    color: #ddd;
 }

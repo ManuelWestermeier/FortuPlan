@@ -2,12 +2,13 @@ import React, { createContext, useContext, useState, useEffect } from "react";
 import SHA256 from "crypto-js/sha256";
 import AES from "crypto-js/aes";
 import Utf8 from "crypto-js/enc-utf8";
+import useLocalStorage from "use-local-storage";
 
 const CalendarContext = createContext();
 
 export const CalendarProvider = ({ children }) => {
   const [authenticated, setAuthenticated] = useState(false);
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useLocalStorage("default-username", "");
   const [password, setPassword] = useState("");
   const [events, setEvents] = useState([]);
   const [error, setError] = useState("");
@@ -16,7 +17,8 @@ export const CalendarProvider = ({ children }) => {
   const getStorageKey = (user) => SHA256(user).toString();
 
   // Attempt login or account creation
-  const handleLogin = () => {
+  const handleLogin = (e) => {
+    e.preventDefault();
     setError("");
     const key = getStorageKey(username);
     const stored = localStorage.getItem(key);
@@ -55,7 +57,8 @@ export const CalendarProvider = ({ children }) => {
 
   if (!authenticated) {
     return (
-      <div
+      <form
+        onSubmit={handleLogin}
         style={{
           display: "flex",
           flexDirection: "column",
@@ -72,17 +75,18 @@ export const CalendarProvider = ({ children }) => {
           style={{ margin: "8px 0", padding: "8px", width: "200px" }}
         />
         <input
+          autoFocus
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           style={{ margin: "8px 0", padding: "8px", width: "200px" }}
         />
-        <button onClick={handleLogin} style={{ padding: "8px 16px" }}>
+        <button type="submit" style={{ padding: "8px 16px" }}>
           Submit
         </button>
         {error && <p style={{ color: "red" }}>{error}</p>}
-      </div>
+      </form>
     );
   }
 

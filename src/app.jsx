@@ -3,8 +3,9 @@ import { useCalendar } from "./prov/calendar";
 
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
-import "react-big-calendar/lib/css/react-big-calendar.css";
+// import "react-big-calendar/lib/css/react-big-calendar.css";
 import { Route, Routes, Navigate } from "react-router-dom";
+import "./css/calendar.css";
 
 const localizer = momentLocalizer(moment);
 
@@ -16,7 +17,6 @@ function CalendarView() {
       events={events}
       startAccessor="start"
       endAccessor="end"
-      style={{ height: 600, margin: "1rem" }}
     />
   );
 }
@@ -27,10 +27,10 @@ export default function App() {
       <Route
         path="/"
         element={
-          <div style={{ maxWidth: 800, margin: "0 auto", padding: "1rem" }}>
-            <h1>My Calendar</h1>
+          <>
+            <img src="/favicon.svg" height="30px" alt="" />
             <CalendarView />
-          </div>
+          </>
         }
       />
       <Route path="*" element={<Navigate to="/" />} />

@@ -1,0 +1,57 @@
+.rbc-calendar {
+    display: flex;
+    flex-direction: column;
+
+    width: 100dvw;
+    height: calc(100dvh - 50px);
+
+    overflow: hidden;
+
+    .rbc-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .rbc-col {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .rbc-month-header {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .rbc-toolbar {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    button {
+        outline: 0.1rem solid #3b3b53;
+        padding: 0.5rem;
+        margin-left: 0.5rem;
+    }
+
+    button:hover {
+        outline: 0.3rem solid #3b3b53;
+    }
+
+    .rbc-date-cell {
+        background-image: linear-gradient(to top right, #434365, #5e5e96);
+        padding: 10px;
+        margin: 10px;
+        border-radius: 10px;
+        width: 100%;
+        height: 100%;
+    }
+
+}
