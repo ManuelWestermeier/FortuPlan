@@ -7,7 +7,12 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: "autoUpdate",
-      includeAssets: ["favicon.ico","favicon.svg", "pwa-192x192.png", "pwa-512x512.png"],
+      includeAssets: [
+        "favicon.ico",
+        "favicon.svg",
+        "pwa-192x192.png",
+        "pwa-512x512.png",
+      ],
       manifest: {
         name: "FortuPlan",
         short_name: "FortuPlan",
@@ -48,7 +53,9 @@ export default defineConfig({
           {
             // Cache JS, CSS, Images
             urlPattern: ({ request }) =>
-              ["style", "script", "image", "font"].includes(request.destination),
+              ["style", "script", "image", "font"].includes(
+                request.destination
+              ),
             handler: "CacheFirst",
             options: {
               cacheName: "static-resources",
@@ -72,9 +79,7 @@ export default defineConfig({
             },
           },
         ],
-        offlineFallback: {
-          pageFallback: "/",
-        },
+        navigateFallback: "/",
       },
     }),
   ],
