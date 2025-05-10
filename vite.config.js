@@ -11,12 +11,11 @@ export default defineConfig({
       manifest: {
         name: "FortuPlan",
         short_name: "FortuPlan",
-        description:
-          "Mit FortuPlan kann man Todos, Abläufe, Events und Tage sicher planen.",
+        description: "Plan your Days and Events with security.",
         start_url: "/",
         display: "standalone",
         background_color: "#ffffff",
-        theme_color: "#42b883",
+        theme_color: "#15151f",
         icons: [
           {
             src: "pwa-192x192.png",
@@ -34,5 +33,8 @@ export default defineConfig({
   ],
   build: {
     outDir: "docs",
+  },
+  server: {
+    port: 2727,
   },
 });
