@@ -28,7 +28,7 @@ export default function App() {
         path="/"
         element={
           <>
-            <img src="/favicon.svg" height="30px" alt="" />
+            <img src="/favicon.svg" alt="" />
             <CalendarView />
           </>
         }

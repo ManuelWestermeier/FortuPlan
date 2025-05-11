@@ -41,7 +41,19 @@ export const CalendarProvider = ({ children }) => {
         start: new Date().toISOString(),
         end: new Date(Date.now() + 60 * 60 * 1000).toISOString(),
       };
-      setEvents([defaultEvent]);
+      setEvents([
+        defaultEvent,
+        {
+          title: "X event 1",
+          start: new Date(Date.now() + 10 * (60 * 60 * 1000)).toISOString(),
+          end: new Date(Date.now() + 11 * (60 * 60 * 1000)).toISOString(),
+        },
+        {
+          title: "Y event 2",
+          start: new Date(Date.now() + 5 * (60 * 60 * 1000)).toISOString(),
+          end: new Date(Date.now() + 6 * (60 * 60 * 1000)).toISOString(),
+        },
+      ]);
       setAuthenticated(true);
     }
   };

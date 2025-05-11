@@ -3,18 +3,18 @@
     flex-direction: column;
 
     width: 100dvw;
-    height: calc(100dvh - 50px);
+    height: calc(100dvh - 5rem);
 
-    overflow: hidden;
+    overflow: auto;
 
-    .rbc-row {
+    .rbc-row:not(:has(.rbc-event)) {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
     }
 
-    .rbc-col {
+    .rbc-col:not(:has(.rbc-event)) {
         display: flex;
         flex-direction: column;
     }
@@ -47,11 +47,18 @@
 
     .rbc-date-cell {
         background-image: linear-gradient(to top right, #434365, #5e5e96);
-        padding: 10px;
-        margin: 10px;
-        border-radius: 10px;
+        margin: .3rem;
+        padding: 0.5rem;
+        border-radius: 1rem;
         width: 100%;
         height: 100%;
     }
 
+    .rbc-event {
+        background-image: linear-gradient(to top right, #434365, #5e5e96);
+        margin: .3rem;
+        padding: 0.5rem;
+        border-radius: 1rem;
+        min-height: 50px;
+    }
 }
