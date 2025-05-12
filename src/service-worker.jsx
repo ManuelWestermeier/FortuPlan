@@ -1,5 +1,4 @@
 export default function insallSW() {
-  // serviceWorker.js
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {
       navigator.serviceWorker
