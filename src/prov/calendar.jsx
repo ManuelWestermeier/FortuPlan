@@ -37,24 +37,12 @@ export const CalendarProvider = ({ children }) => {
         setError("Wrong password. Please try again.");
       }
     } else {
-      const defaultEvent = {
-        title: "Welcome Event",
-        start: new Date(),
-        end: new Date(Date.now() + day / 24),
-      };
-
       setEvents([
-        defaultEvent,
         {
-          title: "X event 1",
-          start: new Date(Date.now() + 10 * day),
-          end: new Date(Date.now() + 10.1 * day),
-        },
-        {
-          title: "Y event 2",
-          start: new Date(Date.now() + 5 * day),
-          end: new Date(Date.now() + 7.3 * day),
-        },
+          title: "Welcome Event",
+          start: new Date(),
+          end: new Date(Date.now() + 60_000),
+        }
       ]);
       setAuthenticated(true);
     }

@@ -9,13 +9,13 @@ const localizer = momentLocalizer(moment);
 
 function CalendarView() {
   const { events } = useCalendar();
-  console.log(events);
   return (
     <Calendar
       localizer={localizer}
       events={events}
       startAccessor="start"
       endAccessor="end"
+      titleAccessor="title"
     />
   );
 }
