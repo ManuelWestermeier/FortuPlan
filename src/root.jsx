@@ -42,10 +42,12 @@ export default function Root() {
 
   return (
     <>
+      <h1>
+        {isInstallable && (
+          <button onClick={handleInstallClick}>Install App</button>
+        )}
+      </h1>
       <App />
-      {isInstallable && (
-        <button onClick={handleInstallClick}>Install App</button>
-      )}
     </>
   );
 }
