@@ -4,6 +4,8 @@ import AES from "crypto-js/aes";
 import Utf8 from "crypto-js/enc-utf8";
 import useLocalStorage from "use-local-storage";
 
+const day = 60 * 60 * 24 * 1000;
+
 const CalendarContext = createContext();
 
 export const CalendarProvider = ({ children }) => {
@@ -38,20 +40,20 @@ export const CalendarProvider = ({ children }) => {
       const defaultEvent = {
         title: "Welcome Event",
         start: new Date(),
-        end: new Date(Date.now() + 60 * 60 * 1000),
+        end: new Date(Date.now() + day / 24),
       };
 
       setEvents([
         defaultEvent,
         {
           title: "X event 1",
-          start: new Date(Date.now() + 10 * 60 * 60 * 1000),
-          end: new Date(Date.now() + 11 * 60 * 60 * 1000),
+          start: new Date(Date.now() + 10 * day),
+          end: new Date(Date.now() + 10.1 * day),
         },
         {
           title: "Y event 2",
-          start: new Date(Date.now() + 5 * 60 * 60 * 1000),
-          end: new Date(Date.now() + 6 * 60 * 60 * 1000),
+          start: new Date(Date.now() + 5 * day),
+          end: new Date(Date.now() + 7.3 * day),
         },
       ]);
       setAuthenticated(true);
