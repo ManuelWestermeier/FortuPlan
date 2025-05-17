@@ -80,6 +80,7 @@ export const CalendarProvider = ({ children }) => {
       >
         <h2>Login / Create Account</h2>
         <input
+          autoFocus={!username}
           type="text"
           placeholder="Username"
           value={username}
@@ -87,7 +88,7 @@ export const CalendarProvider = ({ children }) => {
           style={{ margin: "8px 0", padding: "8px", width: "200px" }}
         />
         <input
-          autoFocus
+          autoFocus={!!username}
           type="password"
           placeholder="Password"
           value={password}
