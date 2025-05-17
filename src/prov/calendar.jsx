@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 import SHA256 from "crypto-js/sha256";
 import AES from "crypto-js/aes";
 import Utf8 from "crypto-js/enc-utf8";
@@ -35,23 +35,23 @@ export const CalendarProvider = ({ children }) => {
         setError("Wrong password. Please try again.");
       }
     } else {
-      // New account: initialize
       const defaultEvent = {
         title: "Welcome Event",
-        start: new Date().toISOString(),
-        end: new Date(Date.now() + 60 * 60 * 1000).toISOString(),
+        start: new Date(),
+        end: new Date(Date.now() + 60 * 60 * 1000),
       };
+
       setEvents([
         defaultEvent,
         {
           title: "X event 1",
-          start: new Date(Date.now() + 10 * (60 * 60 * 1000)).toISOString(),
-          end: new Date(Date.now() + 11 * (60 * 60 * 1000)).toISOString(),
+          start: new Date(Date.now() + 10 * 60 * 60 * 1000),
+          end: new Date(Date.now() + 11 * 60 * 60 * 1000),
         },
         {
           title: "Y event 2",
-          start: new Date(Date.now() + 5 * (60 * 60 * 1000)).toISOString(),
-          end: new Date(Date.now() + 6 * (60 * 60 * 1000)).toISOString(),
+          start: new Date(Date.now() + 5 * 60 * 60 * 1000),
+          end: new Date(Date.now() + 6 * 60 * 60 * 1000),
         },
       ]);
       setAuthenticated(true);
