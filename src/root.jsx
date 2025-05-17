@@ -1,21 +1,18 @@
 import { useState, useEffect } from "react";
 import App from "./App";
 
-// Main component to handle app installation prompt
 export default function Root() {
   const [deferredPrompt, setDeferredPrompt] = useState(null);
   const [isInstallable, setIsInstallable] = useState(false);
 
   useEffect(() => {
     const handleBeforeInstallPrompt = (e) => {
-      e.preventDefault(); // Prevent the automatic mini-infobar
-      setDeferredPrompt(e); // Save the event for later
-      setIsInstallable(true); // Show the install button
+      e.preventDefault(); // Prevent the browser's default prompt
+      setDeferredPrompt(e); // Save the event for triggering later
+      setIsInstallable(true); // Show the "Install" button
     };
 
-    if ("onbeforeinstallprompt" in window) {
-      window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
-    }
+    window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
 
     return () => {
       window.removeEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
@@ -25,23 +22,25 @@ export default function Root() {
   const handleInstallClick = async () => {
     if (!deferredPrompt) return;
 
-    deferredPrompt.prompt(); // Show the install prompt
+    deferredPrompt.prompt(); // Trigger browser install prompt
 
     const choiceResult = await deferredPrompt.userChoice;
-    if (choiceResult.outcome === "accepted") {
-      console.log("User accepted the A2HS prompt");
-    } else {
-      console.log("User dismissed the A2HS prompt");
-    }
+    console.log(
+      choiceResult.outcome === "accepted"
+        ? "User accepted the install prompt"
+        : "User dismissed the install prompt"
+    );
 
     setDeferredPrompt(null);
-    setIsInstallable(false);
+    setIsInstallable(false); // Hide button after interaction
   };
 
   return (
     <>
       {isInstallable && (
-        <button onClick={handleInstallClick}>Install App</button>
+        <button onClick={handleInstallClick}>
+          Install App
+        </button>
       )}
       <App />
     </>

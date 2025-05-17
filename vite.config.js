@@ -79,7 +79,7 @@ export default defineConfig({
             },
           },
         ],
-        navigateFallback: "/",
+        navigateFallback: "/index.html",
       },
     }),
   ],

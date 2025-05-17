@@ -902,8 +902,6 @@ button.rbc-input::-moz-focus-inner {
     width: 141px;
 }
 
-/*# sourceMappingURL=react-big-calendar.css.map */
-
 .rbc-calendar {
     display: flex;
     flex-direction: column;
@@ -981,5 +979,9 @@ button.rbc-input::-moz-focus-inner {
         cursor: pointer;
         background-color: #4c4c76;
         outline: none;
+    }
+
+    .rbc-today {
+        background-color: rgba(255, 255, 255, 0.2);
     }
 }
